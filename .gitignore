@@ -1,0 +1,25 @@
+# XCode : https://github.com/github/gitignore/blob/master/Objective-C.gitignore
+.DS_Store
+build/
+product/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+!default.xcworkspace
+xcuserdata
+DerivedData
+*.xccheckout
+
+*.gcno
+*.gcda
+
+# AppCode
+.idea
+
+# rbenv 
+.bundle/
+.gems
+.rbenv-gemsets

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF" : 0,
+    "38847B9143789ADFF4DAFC15E97FB96791AF21CA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "668541FA-8B6A-4902-A971-5BA6CBA04D4C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF" : "VWInstantRun\/",
+    "38847B9143789ADFF4DAFC15E97FB96791AF21CA" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VWInstantRun",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VWInstantRun.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:wangshengjia\/BearBeers.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "38847B9143789ADFF4DAFC15E97FB96791AF21CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:wangshengjia\/VWInstantRun.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF"
+    }
+  ]
+}
