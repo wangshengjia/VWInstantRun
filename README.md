@@ -16,8 +16,8 @@ build and run project, and finally restart Xcode to active plugin.
 
 ### Alcatraz
 
-Another more easier option: This plugin can also be installed using [Alcatraz](https://github.com/alcatraz/alcatraz-packages). 
-Just search for `VMInstantRun` in [Alcatraz](https://github.com/alcatraz/alcatraz-packages).
+Another way more easier option: This plugin can also be installed using [Alcatraz](https://github.com/alcatraz/alcatraz-packages). 
+Just search for `VWInstantRun` in [Alcatraz](https://github.com/alcatraz/alcatraz-packages).
 
 ### Usage
 
