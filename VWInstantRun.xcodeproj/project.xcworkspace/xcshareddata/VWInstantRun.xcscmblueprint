@@ -1,15 +1,15 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "66943E2C34B104C95AD7AC58659198F1F69F564C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF" : 0,
+    "66943E2C34B104C95AD7AC58659198F1F69F564C" : 0,
     "38847B9143789ADFF4DAFC15E97FB96791AF21CA" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "668541FA-8B6A-4902-A971-5BA6CBA04D4C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF" : "VWInstantRun\/",
+    "66943E2C34B104C95AD7AC58659198F1F69F564C" : "VWInstantRun\/",
     "38847B9143789ADFF4DAFC15E97FB96791AF21CA" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "VWInstantRun",
@@ -24,7 +24,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:wangshengjia\/VWInstantRun.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "45EA05E9680FE62C9C6543D13CC32D70BFF02AFF"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "66943E2C34B104C95AD7AC58659198F1F69F564C"
     }
   ]
 }
