@@ -9,7 +9,18 @@
 import Foundation
 
 class VWPluginHelper: NSObject {
+
+    private static func showDebugNavigator() {
+        let source      = CGEventSourceCreate(.CombinedSessionState)
+        let commandDown = CGEventCreateKeyboardEvent(source, 8, true)
+        let commandUp   = CGEventCreateKeyboardEvent(source, 8, false)
+        CGEventSetFlags(commandDown, CGEventFlags(rawValue: CGEventFlags.MaskCommand.rawValue | CGEventFlags.MaskShift.rawValue)!)
+        CGEventPost(.CGAnnotatedSessionEventTap, commandDown)
+        CGEventPost(.CGAnnotatedSessionEventTap, commandUp)
+    }
+    
     static func run(output: String?) {
+        showDebugNavigator()
         logOutput(output)
         VWFileIO.removeItemAtPath(VWFileIO.swiftMainFilePath)
         VWFileIO.removeItemAtPath(VWFileIO.objcMainFilePath)
