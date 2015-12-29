@@ -26,7 +26,13 @@ build and run the lines of code selected.
 
 ### Limitations
 
-The purpose of this plugin is to run your code snippet instantly without building the whole project, so obviously it do have some limitations. The code selected should be isolated from other contexts, otherwise you will only have some compiler errors when you run that code snippet. Usually you need to add some stub values as input and add `print()` phrase to actually view your output in console view. For now, it only support Foundation module.
+The purpose of this plugin is to run your code snippet instantly without building the whole project, so obviously it do have some limitations.
+
+- The code selected should be isolated completely from other contexts (such as instance property, self, or there function, etc…), otherwise you will only have some compiler errors when you run that code snippet.
+- Usually you need to add some stub values as input and add `print()` phrase to actually view your output in console view.
+- For now, it only support Foundation module.
+
+**This plugin certainly can not and should not replace your unit tests, at all. The suitable case is to test and prove some tiny doubts as I mentioned in blog.**
 
 ### Todo List
 This plugin is still in a very early stage, here is a TODO list to show you a simple roadmap.
@@ -37,6 +43,6 @@ This plugin is still in a very early stage, here is a TODO list to show you a si
 
 ### More information
 - You can checkout more implementation details in this [blog post](https://medium.com/@victor_wang/run-your-code-snippet-from-xcode-without-building-the-whole-project-1821cf85b2f2#.rkcfjqcl5).
-- If you have __anything__ want to talk, feel free to raise an issue or say hello on twitter to [@wangshengjia](https://twitter.com/wangshengjia)
+- If you have __anything__ want to talk, feel free to raise an issue or say hello on Twitter to [@wangshengjia](https://twitter.com/wangshengjia), on Weibo to [@ShengjiaWang](http://www.weibo.com/1739447693/profile?topnav=1&wvr=6&is_all=1)
 
 Enjoy :tada::tada:
