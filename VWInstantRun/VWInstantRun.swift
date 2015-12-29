@@ -61,7 +61,7 @@ extension VWInstantRun {
         VWPluginHelper.buildWithSwift(onCompletion: VWPluginHelper.run)
     }
 
-    func importModules() -> String {
+    private func importModules() -> String {
         return VWInstantRun.modules.map({ (module) -> String in
             return "import " + module
         }).joinWithSeparator("\n") + "\n"
