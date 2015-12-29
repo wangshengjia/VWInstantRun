@@ -19,8 +19,15 @@ class VWXcodeHelpers {
 
         showDebugAreaIfNeeded()
 
+        let attibutes: Dictionary<String, AnyObject>
+        if let debuggedTargetOutputTextAttributes = consoleTextView.valueForKeyPath("_debuggedTargetOutputTextAttributes") as? Dictionary<String, AnyObject> {
+            attibutes = debuggedTargetOutputTextAttributes
+        } else {
+            attibutes = [NSFontAttributeName: NSFont.boldSystemFontOfSize(NSFont.systemFontSize())]
+        }
+
         textStorage.beginEditing()
-        textStorage.appendAttributedString(NSAttributedString(string: logText, attributes: [NSFontAttributeName:NSFont.boldSystemFontOfSize(NSFont.systemFontSize())]))
+        textStorage.appendAttributedString(NSAttributedString(string: logText, attributes: attibutes))
         textStorage.endEditing()
         consoleTextView.performSelector("_scrollToBottom")
     }
