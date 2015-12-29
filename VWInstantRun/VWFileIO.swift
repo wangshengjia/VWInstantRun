@@ -43,7 +43,7 @@ class VWFileIO {
 extension VWFileIO {
     static func removeItemAtPath(path: String) {
         let fileManager = NSFileManager.defaultManager()
-        guard fileManager.fileExistsAtPath(VWFileIO.tempDirectory) else {
+        guard fileManager.fileExistsAtPath(path) else {
             return
         }
 

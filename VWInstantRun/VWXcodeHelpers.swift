@@ -17,6 +17,8 @@ class VWXcodeHelpers {
                 return
         }
 
+        showDebugAreaIfNeeded()
+
         textStorage.beginEditing()
         textStorage.appendAttributedString(NSAttributedString(string: logText, attributes: [NSFontAttributeName:NSFont.boldSystemFontOfSize(NSFont.systemFontSize())]))
         textStorage.endEditing()
@@ -34,9 +36,8 @@ class VWXcodeHelpers {
     }
 
     static func editorTextView(inWindow window: NSWindow? = NSApp.mainWindow) -> NSTextView? {
-        guard let window = window,
-            let windowController = window.windowController,
-            let editor = windowController.valueForKeyPath("editorArea.lastActiveEditorContext.editor"),
+        guard let editorArea = xcodeEditorArea(),
+            let editor = editorArea.valueForKeyPath("lastActiveEditorContext.editor"),
             let textView = editor.valueForKey("textView") as? NSTextView else {
                 return nil
         }
@@ -46,14 +47,34 @@ class VWXcodeHelpers {
 
     static func consoleTextView(inWindow window: NSWindow? = NSApp.mainWindow) -> NSTextView? {
         if let contentView = window?.contentView,
-            let consoleTextView = VWXcodeHelpers.getViewByClassName("IDEConsoleTextView", inContainer: contentView) as? NSTextView {
+            let consoleTextView = getViewByClassName("IDEConsoleTextView", inContainer: contentView) as? NSTextView {
                 return consoleTextView
         }
         
         return nil
     }
-    
-    static func getViewByClassName(name: String, inContainer container: NSView) -> NSView? {
+
+
+}
+
+extension VWXcodeHelpers {
+    private static func showDebugAreaIfNeeded(inWindow window: NSWindow? = NSApp.mainWindow) {
+        if let editor = xcodeEditorArea(),
+            let showDebuggerArea = editor.valueForKey("showDebuggerArea") as? Bool where showDebuggerArea == false {
+                editor.performSelector("toggleDebuggerVisibility:")
+        }
+    }
+
+    private static func xcodeEditorArea(inWindow window: NSWindow? = NSApp.mainWindow) -> AnyObject? {
+        guard let window = window, let windowController = window.windowController,
+            let editor = windowController.valueForKeyPath("editorArea") else {
+                return nil
+        }
+
+        return editor
+    }
+
+    private static func getViewByClassName(name: String, inContainer container: NSView) -> NSView? {
         guard let targetClass = NSClassFromString(name) else {
             return nil
         }
@@ -66,7 +87,7 @@ class VWXcodeHelpers {
                 return view
             }
         }
-
+        
         return nil
     }
 }
