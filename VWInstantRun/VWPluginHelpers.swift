@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import AppKit
 class VWPluginHelper: NSObject {
     static func run(output: String?) {
         logOutput(output)
@@ -40,7 +40,7 @@ class VWPluginHelper: NSObject {
             return
         }
 
-        runShellCommand(["/usr/bin/xcrun", "/usr/bin/swiftc", VWFileIO.swiftMainFilePath, "-o", VWFileIO.outputBinaryFilePath], commandTerminationHandler: completionHandler)
+        runShellCommand(["/usr/bin/xcrun", "-sdk", "macosx", "/usr/bin/swiftc", VWFileIO.swiftMainFilePath, "-o", VWFileIO.outputBinaryFilePath], commandTerminationHandler: completionHandler)
     }
 
     static func executeBinaryFile(onCompletion completionHandler:(output: String?) -> () = VWPluginHelper.logOutput) {
