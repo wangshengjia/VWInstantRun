@@ -65,6 +65,16 @@ class VWXcodeHelpers {
 }
 
 extension VWXcodeHelpers {
+    private static func currentFilePath() -> String? {
+        guard let editorArea = xcodeEditorArea(),
+            let editor = editorArea.valueForKeyPath("lastActiveEditorContext.editor"),
+            let path = editor.valueForKeyPath("sourceCodeDocument.fileURL.path") as? String else {
+                return nil
+        }
+
+        return path
+    }
+
     private static func showDebugAreaIfNeeded(inWindow window: NSWindow? = NSApp.mainWindow) {
         if let editor = xcodeEditorArea(),
             let showDebuggerArea = editor.valueForKey("showDebuggerArea") as? Bool where showDebuggerArea == false {
