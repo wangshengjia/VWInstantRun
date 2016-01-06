@@ -37,6 +37,17 @@ class VWFileIO {
             try fileManager.createDirectoryAtPath(VWFileIO.tempDirectory, withIntermediateDirectories: true, attributes: nil)
         }
     }
+
+    static func writeToObjcMainFileWithText(text: String) throws {
+        let textWithMain =
+        "#import <Foundation/Foundation.h> \n\n"
+            + "int main(int argc, char * argv[]) {\n"
+            +    "\n\(text)\n"
+            + "\n}\n"
+
+        try textWithMain.writeToFile(objcMainFilePath, atomically: true, encoding: NSUTF8StringEncoding)
+    }
+
     static func writeToSwiftMainFileWithText(text: String) throws {
         try text.writeToFile(swiftMainFilePath, atomically: true, encoding: NSUTF8StringEncoding)
     }
