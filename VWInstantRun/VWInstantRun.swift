@@ -54,11 +54,27 @@ extension VWInstantRun {
             return
         }
 
-        guard ((try? VWFileIO.writeToMainFileWithText(importModules() + selectedLines)) != nil) else {
+        guard let _ = try? VWFileIO.prepareTempDirectory() else {
             return
         }
 
-        VWPluginHelper.buildWithSwift(onCompletion: VWPluginHelper.run)
+        if VWXcodeHelpers.isObjCFile() {
+
+            guard let _ = try? VWFileIO.writeToObjcMainFileWithText(selectedLines) else {
+                return
+            }
+            
+            VWPluginHelper.buildWithObjc(onCompletion: VWPluginHelper.run)
+            
+        } else if VWXcodeHelpers.isSwiftFile() {
+            guard let _ = try? VWFileIO.writeToSwiftMainFileWithText(importModules() + selectedLines) else {
+                return
+            }
+
+            VWPluginHelper.buildWithSwift(onCompletion: VWPluginHelper.run)
+        } else {
+            VWPluginHelper.logOutput("\n ERROR: Unexpected file type. Only support .swift, .m & .h")
+        }
     }
 
     private func importModules() -> String {

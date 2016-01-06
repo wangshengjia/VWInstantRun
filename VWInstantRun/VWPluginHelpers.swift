@@ -8,7 +8,9 @@
 
 import Foundation
 import AppKit
-class VWPluginHelper: NSObject {
+
+struct VWPluginHelper {
+
     static func run(output: String?) {
         logOutput(output)
         VWFileIO.removeItemAtPath(VWFileIO.swiftMainFilePath)
@@ -27,7 +29,7 @@ class VWPluginHelper: NSObject {
         VWXcodeHelpers.appendLogText(output)
     }
 
-    static func buildWithObjC(onCompletion completionHandler:(output: String?) -> () = VWPluginHelper.run) {
+    static func buildWithObjc(onCompletion completionHandler:(output: String?) -> () = VWPluginHelper.run) {
         guard NSFileManager.defaultManager().fileExistsAtPath(VWFileIO.objcMainFilePath) else {
             return
         }

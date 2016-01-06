@@ -5,9 +5,11 @@ a small piece of code to test a tiny doubt ?
 
 Now with VWInstantRun, you won't run into this situation any more. An Xcode plugin let you build & run your selected lines of code in Xcode without running the whole project, you'll have the output instantly in your Xcode console.
 
+### Objective C
+![](run_objc_code_1.gif)
+### Swift
 ![](run_swift_code_1.gif)
 ![](run_swift_code_2.gif)
-![](run_swift_code_3.gif)
 
 ### Installation
 
@@ -37,7 +39,7 @@ The purpose of this plugin is to run your code snippet instantly without buildin
 ### Todo List
 This plugin is still in a very early stage, here is a TODO list to show you a simple roadmap.
 - [x] Swift code support.
-- [ ] Objective-C code support. (In progress, should be done soon)
+- [x] Objective-C code support.
 - [ ] More modules support.
 - [ ] Run selected code with arguments inputed by user.
 

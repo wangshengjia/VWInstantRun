@@ -9,7 +9,8 @@
 import Foundation
 import AppKit
 
-class VWXcodeHelpers {
+struct VWXcodeHelpers {
+    
     static func appendLogText(logText: String) {
 
         guard let consoleTextView = consoleTextView(),
@@ -30,6 +31,22 @@ class VWXcodeHelpers {
         textStorage.appendAttributedString(NSAttributedString(string: logText, attributes: attibutes))
         textStorage.endEditing()
         consoleTextView.performSelector("_scrollToBottom")
+    }
+
+    static func isObjCFile() -> Bool {
+        guard let path = currentFilePath() else {
+            return false
+        }
+
+        return path.hasSuffix(".m") || path.hasSuffix(".h")
+    }
+
+    static func isSwiftFile() -> Bool {
+        guard let path = currentFilePath() else {
+                return false
+        }
+
+        return path.hasSuffix(".swift")
     }
 
     static func selectedLines() -> String? {
@@ -65,6 +82,16 @@ class VWXcodeHelpers {
 }
 
 extension VWXcodeHelpers {
+    private static func currentFilePath() -> String? {
+        guard let editorArea = xcodeEditorArea(),
+            let editor = editorArea.valueForKeyPath("lastActiveEditorContext.editor"),
+            let path = editor.valueForKeyPath("sourceCodeDocument.fileURL.path") as? String else {
+                return nil
+        }
+
+        return path
+    }
+
     private static func showDebugAreaIfNeeded(inWindow window: NSWindow? = NSApp.mainWindow) {
         if let editor = xcodeEditorArea(),
             let showDebuggerArea = editor.valueForKey("showDebuggerArea") as? Bool where showDebuggerArea == false {
