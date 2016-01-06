@@ -9,19 +9,6 @@
 import Foundation
 
 class VWFileIO {
-    static func writeToMainFileWithText(text: String) throws {
-        let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(VWFileIO.tempDirectory) {
-            for file in try fileManager.contentsOfDirectoryAtPath(VWFileIO.tempDirectory) {
-                let filePath = (VWFileIO.tempDirectory as NSString).stringByAppendingPathComponent(file)
-                try fileManager.removeItemAtPath(filePath)
-            }
-        } else {
-            try fileManager.createDirectoryAtPath(VWFileIO.tempDirectory, withIntermediateDirectories: true, attributes: nil)
-        }
-
-        try text.writeToFile(swiftMainFilePath, atomically: true, encoding: NSUTF8StringEncoding)
-    }
 
     static var tempDirectory: String {
         return (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent("com.instant-run.tmp")
@@ -37,6 +24,21 @@ class VWFileIO {
 
     static var outputBinaryFilePath: String {
         return (tempDirectory as NSString).stringByAppendingPathComponent("run")
+    }
+
+    static func prepareTempDirectory() throws {
+        let fileManager = NSFileManager.defaultManager()
+        if fileManager.fileExistsAtPath(VWFileIO.tempDirectory) {
+            for file in try fileManager.contentsOfDirectoryAtPath(VWFileIO.tempDirectory) {
+                let filePath = (VWFileIO.tempDirectory as NSString).stringByAppendingPathComponent(file)
+                try fileManager.removeItemAtPath(filePath)
+            }
+        } else {
+            try fileManager.createDirectoryAtPath(VWFileIO.tempDirectory, withIntermediateDirectories: true, attributes: nil)
+        }
+    }
+    static func writeToSwiftMainFileWithText(text: String) throws {
+        try text.writeToFile(swiftMainFilePath, atomically: true, encoding: NSUTF8StringEncoding)
     }
 }
 

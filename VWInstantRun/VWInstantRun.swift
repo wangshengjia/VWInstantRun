@@ -54,11 +54,15 @@ extension VWInstantRun {
             return
         }
 
-        guard ((try? VWFileIO.writeToMainFileWithText(importModules() + selectedLines)) != nil) else {
+        guard let _ = try? VWFileIO.prepareTempDirectory() else {
             return
         }
 
-        VWPluginHelper.buildWithSwift(onCompletion: VWPluginHelper.run)
+            guard let _ = try? VWFileIO.writeToSwiftMainFileWithText(importModules() + selectedLines) else {
+                return
+            }
+
+            VWPluginHelper.buildWithSwift(onCompletion: VWPluginHelper.run)
     }
 
     private func importModules() -> String {
