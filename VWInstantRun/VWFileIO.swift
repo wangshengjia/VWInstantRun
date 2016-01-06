@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VWFileIO {
+struct VWFileIO {
 
     static var tempDirectory: String {
         return (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent("com.instant-run.tmp")

@@ -9,7 +9,8 @@
 import Foundation
 import AppKit
 
-class VWXcodeHelpers {
+struct VWXcodeHelpers {
+    
     static func appendLogText(logText: String) {
 
         guard let consoleTextView = consoleTextView(),
