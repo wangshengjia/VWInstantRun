@@ -32,6 +32,22 @@ class VWXcodeHelpers {
         consoleTextView.performSelector("_scrollToBottom")
     }
 
+    static func isObjCFile() -> Bool {
+        guard let path = currentFilePath() else {
+            return false
+        }
+
+        return path.hasSuffix(".m") || path.hasSuffix(".h")
+    }
+
+    static func isSwiftFile() -> Bool {
+        guard let path = currentFilePath() else {
+                return false
+        }
+
+        return path.hasSuffix(".swift")
+    }
+
     static func selectedLines() -> String? {
         guard let textView = editorTextView() where textView.selectedRanges.isEmpty != true,
             let textInView: NSString = textView.textStorage?.string,
