@@ -1,7 +1,6 @@
 ## VWInstantRun
 
-How many times you have to build and run your whole project when you just want to run 
-a small piece of code to test a tiny doubt ?
+Have you ever wanted to test out a small snippet of code in Xcode without executing the whole project ?
 
 Now with VWInstantRun, you won't run into this situation any more. An Xcode plugin let you build & run your selected lines of code in Xcode without running the whole project, you'll have the output instantly in your Xcode console.
 
