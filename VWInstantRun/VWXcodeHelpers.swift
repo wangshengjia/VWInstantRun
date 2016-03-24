@@ -30,7 +30,7 @@ struct VWXcodeHelpers {
         textStorage.beginEditing()
         textStorage.appendAttributedString(NSAttributedString(string: logText, attributes: attibutes))
         textStorage.endEditing()
-        consoleTextView.performSelector("_scrollToBottom")
+        consoleTextView.performSelector(Selector("_scrollToBottom"))
     }
 
     static func isObjCFile() -> Bool {
@@ -95,7 +95,7 @@ extension VWXcodeHelpers {
     private static func showDebugAreaIfNeeded(inWindow window: NSWindow? = NSApp.mainWindow) {
         if let editor = xcodeEditorArea(),
             let showDebuggerArea = editor.valueForKey("showDebuggerArea") as? Bool where showDebuggerArea == false {
-                editor.performSelector("toggleDebuggerVisibility:")
+                editor.performSelector(Selector("toggleDebuggerVisibility:"))
         }
     }
 
