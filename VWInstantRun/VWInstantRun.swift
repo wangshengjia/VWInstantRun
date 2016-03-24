@@ -21,7 +21,7 @@ class VWInstantRun: NSObject {
         self.bundle = bundle
 
         super.init()
-        center.addObserver(self, selector: Selector("createMenuItems"), name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        center.addObserver(self, selector: #selector(VWInstantRun.createMenuItems), name: NSApplicationDidFinishLaunchingNotification, object: nil)
     }
 
     deinit {
@@ -37,7 +37,7 @@ class VWInstantRun: NSObject {
 
         let item = NSApp.mainMenu?.itemWithTitle("Product")
         if item != nil {
-            let actionMenuItem = NSMenuItem(title:"Instant Run", action:"instantRun", keyEquivalent:"")
+            let actionMenuItem = NSMenuItem(title:"Instant Run", action:#selector(VWInstantRun.instantRun), keyEquivalent:"")
             actionMenuItem.keyEquivalentModifierMask = Int(NSEventModifierFlags.ShiftKeyMask.rawValue | NSEventModifierFlags.CommandKeyMask.rawValue | NSEventModifierFlags.AlternateKeyMask.rawValue)
             actionMenuItem.keyEquivalent = "R"
             actionMenuItem.target = self
