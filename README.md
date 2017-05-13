@@ -1,3 +1,5 @@
+## VWInstantRun do not support Xcode 8+.
+
 ## VWInstantRun
 
 Have you ever wanted to test out a small snippet of code in Xcode without executing the whole project ?
@@ -39,8 +41,6 @@ The purpose of this plugin is to run your code snippet instantly without buildin
 This plugin is still in a very early stage, here is a TODO list to show you a simple roadmap.
 - [x] Swift code support.
 - [x] Objective-C code support.
-- [ ] More modules support.
-- [ ] Run selected code with arguments inputed by user.
 
 ### More information
 - You can checkout more implementation details in this [blog post](https://medium.com/@victor_wang/run-your-code-snippet-from-xcode-without-building-the-whole-project-1821cf85b2f2#.rkcfjqcl5).
